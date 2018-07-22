@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    
+    <link rel="icon" href="/images/favicon.ico"/>
+    
+    <!-- Bootstrap 4 -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Socket.io -->
+    <script src="/javascripts/vendors/socket.io.min.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/javascripts/vendors/jquery.min.js"></script>
+    <script src="/javascripts/vendors/bootstrap.min.js"></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script>
+      var socket = io();
+
+      socket.on('message', function(message) {
+        console.log('Mensaje recibido: ' , message);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      
+      <%= msg('hello.world') %>
+
+      <%- body %>
+
+    </div>
+  </body>
+</html>
